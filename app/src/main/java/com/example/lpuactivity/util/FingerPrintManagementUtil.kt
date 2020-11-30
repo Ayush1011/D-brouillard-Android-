@@ -1,4 +1,4 @@
-package com.example.lpuactivity
+package com.example.lpuactivity.util
 
 import androidx.biometric.BiometricPrompt
 import androidx.fragment.app.FragmentActivity

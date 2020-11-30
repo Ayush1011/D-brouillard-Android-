@@ -1,20 +1,15 @@
-package com.example.lpuactivity
+package com.example.lpuactivity.util
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
 import androidx.biometric.BiometricPrompt
-import androidx.navigation.findNavController
-import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.setupActionBarWithNavController
-import androidx.navigation.ui.setupWithNavController
-import com.example.lpuactivity.api.RetrofitClient
+import com.example.lpuactivity.R
+import com.example.lpuactivity.Retrofit_requests.api.RetrofitClient
 import com.example.lpuactivity.models.defaultResponse
-import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_main2.*
-import kotlinx.android.synthetic.main.fragment_recycle_home.view.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -40,7 +35,7 @@ class MainActivity2 : AppCompatActivity() {
         val postby=intent.getStringExtra("Postby")
         val price: String? ="₹ "+intent.getStringExtra("Price")
         val description=intent.getStringExtra("Description")
-        id= intent.getStringExtra("Id").toString()
+        id = intent.getStringExtra("Id").toString()
 
 
         if (postby != null) {

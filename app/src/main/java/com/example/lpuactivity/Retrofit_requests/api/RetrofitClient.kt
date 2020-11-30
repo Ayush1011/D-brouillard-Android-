@@ -1,14 +1,12 @@
-package com.example.lpuactivity.api
-import com.example.lpuactivity.sevice.Builder
-import com.google.gson.GsonBuilder
+package com.example.lpuactivity.Retrofit_requests.api
+import com.example.lpuactivity.Retrofit_requests.api.sevice.Builder
 import okhttp3.OkHttpClient
-import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
 object RetrofitClient {
 
-    private const val Base_Url="http://192.168.1.8:3000/"
+    private const val Base_Url="http://192.168.1.8:3000/"  // ip address for local host
 
     private val okHttpClient=OkHttpClient.Builder()
         .addInterceptor { chain->

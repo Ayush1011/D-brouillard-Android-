@@ -13,7 +13,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".LoginScreen"
+        <activity android:name=".util.LoginScreen"
             android:theme="@style/LoginPage"
             >
             <intent-filter>
@@ -22,9 +22,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity2" />
+        <activity android:name=".util.MainActivity2" />
         <activity
-            android:name=".MainActivity"
+            android:name=".util.MainActivity"
             android:theme="@style/AppTheme"
           >
 

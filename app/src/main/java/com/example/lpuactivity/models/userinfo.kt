@@ -18,3 +18,5 @@ data class Userinfo (
 
 
 )
+
+// get request from /userinfo/{id}

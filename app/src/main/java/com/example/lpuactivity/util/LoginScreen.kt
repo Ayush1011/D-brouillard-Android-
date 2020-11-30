@@ -1,4 +1,4 @@
-package com.example.lpuactivity
+package com.example.lpuactivity.util
 
 import android.content.Context
 import android.content.Intent
@@ -6,7 +6,8 @@ import android.content.SharedPreferences
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.example.lpuactivity.api.RetrofitClient
+import com.example.lpuactivity.R
+import com.example.lpuactivity.Retrofit_requests.api.RetrofitClient
 import com.example.lpuactivity.models.defaultResponse
 import kotlinx.android.synthetic.main.activity_login_screen.*
 import retrofit2.Call
@@ -21,10 +22,10 @@ class LoginScreen : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login_screen)
 
+        LoadData() //load data
 
-        LoadData()
         signup_button.setOnClickListener {
-             email=username.text.toString().trim()
+             email =username.text.toString().trim()
             val Password=password.text.toString().trim()
 
 
@@ -75,8 +76,6 @@ class LoginScreen : AppCompatActivity() {
 
     }
 
-
-
         fun saveData()
         {
             val text:String="true"
@@ -106,7 +105,7 @@ class LoginScreen : AppCompatActivity() {
         val sharedPreferences: SharedPreferences =
             getSharedPreferences("sharedPrefs", Context.MODE_PRIVATE)!!
         val savedString = sharedPreferences.getString("STRING_KEY", null)
-        email= sharedPreferences.getString("email", "aka")?.toString()
+        email = sharedPreferences.getString("email", "aaaa@gmail.com")?.toString()
         val savedBoolean = sharedPreferences.getBoolean("BOOLEAN_KEY", false)
 
 

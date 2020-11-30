@@ -6,8 +6,9 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
-import com.example.lpuactivity.MainActivity2
+import com.example.lpuactivity.util.MainActivity2
 import com.example.lpuactivity.R
+import com.example.lpuactivity.models.Video
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.fragment_recycle_home.view.*
 

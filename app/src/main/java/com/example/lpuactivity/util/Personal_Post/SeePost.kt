@@ -1,4 +1,4 @@
-package com.example.lpuactivity.util
+package com.example.lpuactivity.util.Personal_Post
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -8,7 +8,7 @@ import com.example.lpuactivity.R
 import com.example.lpuactivity.Retrofit_requests.api.sevice.Builder
 import com.example.lpuactivity.Retrofit_requests.api.sevice.Dservice
 import com.example.lpuactivity.models.Video1
-import com.example.lpuactivity.util.Personal_Post.personal_post_adaptar
+import com.example.lpuactivity.util.email
 import kotlinx.android.synthetic.main.activity_see_post.*
 import retrofit2.Call
 import retrofit2.Callback

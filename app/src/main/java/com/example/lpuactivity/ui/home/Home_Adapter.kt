@@ -6,14 +6,18 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
-import com.example.lpuactivity.util.MainActivity2
+import com.example.lpuactivity.util.update_post.MainActivity2
 import com.example.lpuactivity.R
 import com.example.lpuactivity.models.Video
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.fragment_recycle_home.view.*
 
 class Home_Adapter(private val homefeed: List<Video>):
+
+
     RecyclerView.Adapter<Home_Adapter.ExampleViewHolder>() {
+
+
 
     inner class ExampleViewHolder(itemView: View):RecyclerView.ViewHolder(itemView){
 
@@ -24,13 +28,20 @@ class Home_Adapter(private val homefeed: List<Video>):
         itemView.setOnClickListener {
             val position:Int =adapterPosition
             val video=homefeed[position]
+             var img=video.photos
+
+            if(img.isEmpty())
+            {
+                img="https://firebasestorage.googleapis.com/v0/b/virtusa-58806.appspot.com/o/images%2Fdefault-post-pic.png?alt=media&token=1459f509-aaa4-4f0e-a4f6-57331eaad74a"
+            }else{
+                img=video.photos
+            }
             val intent = Intent (itemView.context, MainActivity2::class.java)
 
             intent.putExtra("Title",video.title)
             intent.putExtra("description",video.description)
-            intent.putExtra("Image",video.photos)
             intent.putExtra("Postby",video.postby)
-            intent.putExtra("Image",video.photos)
+            intent.putExtra("Image",img)
             intent.putExtra("Price",video.price)
             intent.putExtra("Description",video.description)
             intent.putExtra("Id",video.id)
@@ -56,7 +67,15 @@ class Home_Adapter(private val homefeed: List<Video>):
         val video=homefeed[position]
         holder.itemView.text_home.text=video.title
             val imageholder=holder.itemView.image_home
-        Picasso.get().load(video.photos).into(imageholder)
+
+       var img1=video.photos
+
+        img1 = if(img1.isEmpty()) {
+            "https://firebasestorage.googleapis.com/v0/b/virtusa-58806.appspot.com/o/images%2Fdefault-post-pic.png?alt=media&token=1459f509-aaa4-4f0e-a4f6-57331eaad74a"
+        }else{
+            video.photos
+        }
+        Picasso.get().load(img1).into(imageholder)
 
     }
 

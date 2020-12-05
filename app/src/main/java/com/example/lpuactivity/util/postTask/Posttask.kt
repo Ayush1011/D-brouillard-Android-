@@ -1,49 +1,28 @@
-package com.example.lpuactivity.util
+package com.example.lpuactivity.util.postTask
 import android.Manifest
 import android.annotation.TargetApi
-import android.app.ActionBar
 import android.app.Activity
 import android.app.ProgressDialog
-import android.app.ProgressDialog.show
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.net.Uri
 import android.os.Build
 import android.os.Bundle
-import android.os.Handler
-import android.os.Looper
-import android.provider.MediaStore
-import android.util.Log
-import android.view.View
-import android.widget.Button
-import android.widget.ImageView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
-import androidx.core.net.toFile
-import com.bumptech.glide.Glide
 import com.example.lpuactivity.R
 import com.example.lpuactivity.Retrofit_requests.api.RetrofitClient
 import com.example.lpuactivity.Retrofit_requests.api.sevice.Builder
 import com.example.lpuactivity.Retrofit_requests.api.sevice.Dservice
 import com.example.lpuactivity.models.Userinfo
 import com.example.lpuactivity.models.defaultResponse
-import com.example.lpuactivity.ui.notifications.user_name
-import com.google.android.gms.tasks.Task
+import com.example.lpuactivity.util.email
 import com.google.firebase.storage.FirebaseStorage
-import com.google.firebase.storage.StorageReference
-import com.google.firebase.storage.UploadTask
-import com.squareup.picasso.Picasso
-import kotlinx.android.synthetic.main.activity_login_screen.*
 import kotlinx.android.synthetic.main.activity_posttask.*
-import kotlinx.android.synthetic.main.fragment_notifications.*
-import org.jetbrains.anko.doAsync
-import org.jetbrains.anko.image
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import java.io.File
-import java.util.*
 
 class Posttask : AppCompatActivity() {
 
@@ -303,7 +282,7 @@ class Posttask : AppCompatActivity() {
             override fun onFailure(call: Call<defaultResponse>, t: Throwable) {
                 Toast.makeText(this@Posttask, "Unable to process request", Toast.LENGTH_SHORT).show()
                 finish()
-                
+
             }
 
         }

@@ -9,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.lpuactivity.R
 import com.example.lpuactivity.Retrofit_requests.api.RetrofitClient
 import com.example.lpuactivity.models.defaultResponse
+import com.example.lpuactivity.ui.notifications.NotificationsFragment
 import kotlinx.android.synthetic.main.activity_login_screen.*
 import retrofit2.Call
 import retrofit2.Callback
@@ -54,8 +55,11 @@ class LoginScreen : AppCompatActivity() {
                     println(response.body())
                     if (response.body() != null) {
                         saveData()
+//                        val fragment = NotificationsFragment()
+//                        fragment.getuser()
                         val intent = Intent(this@LoginScreen, MainActivity::class.java)
                         startActivity(intent)
+
                     } else {
                         Toast.makeText(this@LoginScreen, "Fail", Toast.LENGTH_SHORT).show()
 
@@ -75,6 +79,13 @@ class LoginScreen : AppCompatActivity() {
         }
 
     }
+
+
+
+
+
+
+
 
         fun saveData()
         {
@@ -104,13 +115,20 @@ class LoginScreen : AppCompatActivity() {
     {
         val sharedPreferences: SharedPreferences =
             getSharedPreferences("sharedPrefs", Context.MODE_PRIVATE)!!
+
+//        val preferences = getSharedPreferences("sharedPrefs", MODE_PRIVATE)
+//        val editor = preferences.edit()
+//        editor.clear()
+//        editor.apply()
+//        finish()
         val savedString = sharedPreferences.getString("STRING_KEY", null)
-        email = sharedPreferences.getString("email", "aaaa@gmail.com")?.toString()
+        email = sharedPreferences.getString("email", "fail")?.toString()
         val savedBoolean = sharedPreferences.getBoolean("BOOLEAN_KEY", false)
 
 
         println(savedBoolean)
         if(savedBoolean){
+
             val intent = Intent(this@LoginScreen, MainActivity::class.java)
             startActivity(intent)
         }else{

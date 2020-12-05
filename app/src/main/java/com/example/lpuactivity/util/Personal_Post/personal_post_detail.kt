@@ -1,7 +1,6 @@
-package com.example.lpuactivity.util
+package com.example.lpuactivity.util.Personal_Post
 
 import android.annotation.SuppressLint
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -10,15 +9,14 @@ import androidx.biometric.BiometricPrompt
 import com.example.lpuactivity.R
 import com.example.lpuactivity.Retrofit_requests.api.RetrofitClient
 import com.example.lpuactivity.models.defaultResponse
+import com.example.lpuactivity.util.FingerPrintManagementUtil
 import com.squareup.picasso.Picasso
-import kotlinx.android.synthetic.main.activity_main2.*
 import kotlinx.android.synthetic.main.activity_main2.detail_button
 import kotlinx.android.synthetic.main.activity_main2.detail_description
 import kotlinx.android.synthetic.main.activity_main2.detail_name
 import kotlinx.android.synthetic.main.activity_main2.detail_price
 import kotlinx.android.synthetic.main.activity_main2.detailimage
 import kotlinx.android.synthetic.main.activity_main2.mainactivity2textview
-import kotlinx.android.synthetic.main.personal_post_detail.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response

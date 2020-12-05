@@ -1,4 +1,4 @@
-package com.example.lpuactivity.util
+package com.example.lpuactivity.util.Personal_Post
 
 import android.content.Intent
 import android.view.LayoutInflater
@@ -6,9 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
-import com.example.lpuactivity.util.MainActivity2
 import com.example.lpuactivity.R
-import com.example.lpuactivity.models.Video
 import com.example.lpuactivity.models.Video1
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.fragment_recycle_home.view.*

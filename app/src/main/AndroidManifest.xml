@@ -2,6 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.lpuactivity">
 
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
@@ -13,22 +14,24 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".util.LoginScreen"
-            android:theme="@style/LoginPage"
-            >
+        <activity android:name=".util.Accepted_post.accepted_task_detail"></activity>
+        <activity android:name=".util.Accepted_post.Show_accepted_post" />
+        <activity android:name=".util.Personal_Post.SeePost" />
+        <activity android:name=".util.postTask.Posttask" />
+        <activity
+            android:name=".util.LoginScreen"
+            android:theme="@style/LoginPage">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".util.MainActivity2" />
+        <activity android:name=".util.update_post.MainActivity2" />
+        <activity android:name=".util.Personal_Post.Personal_post_detail" />
         <activity
             android:name=".util.MainActivity"
-            android:theme="@style/AppTheme"
-          >
-
-        </activity>
+            android:theme="@style/AppTheme" />
     </application>
 
 </manifest>

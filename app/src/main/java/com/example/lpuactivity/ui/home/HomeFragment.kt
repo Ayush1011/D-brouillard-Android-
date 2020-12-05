@@ -90,6 +90,7 @@ class HomeFragment : Fragment() {
             handler.post {
 
 
+
                 val Dservice = Builder.buildService(Dservice::class.java)
                 val requestCall = Dservice.getTask()
                 requestCall.enqueue(object : Callback<List<Video>> {

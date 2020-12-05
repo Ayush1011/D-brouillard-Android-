@@ -7,18 +7,18 @@
 
 
 
-            <androidx.cardview.widget.CardView
+    <androidx.cardview.widget.CardView
 
-                android:layout_width="match_parent"
-                android:layout_height="150dp"
-                app:cardCornerRadius="8dp"
-                android:layout_margin="5dp"
-                android:elevation="10dp">
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        app:cardCornerRadius="8dp"
+        android:layout_margin="5dp"
+        android:elevation="10dp">
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
             <ImageView
                 android:scaleType="fitXY"
@@ -35,9 +35,9 @@
                 android:gravity="center"
 
                 android:text="text_home_recycle" />
-                </LinearLayout>
+        </LinearLayout>
 
-            </androidx.cardview.widget.CardView>
+    </androidx.cardview.widget.CardView>
 
 
 

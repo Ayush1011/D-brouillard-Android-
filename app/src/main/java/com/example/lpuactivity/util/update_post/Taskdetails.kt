@@ -1,6 +1,5 @@
 package com.example.lpuactivity.util.update_post
 
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -9,7 +8,6 @@ import androidx.biometric.BiometricPrompt
 import com.example.lpuactivity.R
 import com.example.lpuactivity.Retrofit_requests.api.RetrofitClient
 import com.example.lpuactivity.models.defaultResponse
-import com.example.lpuactivity.ui.home.HomeFragment
 import com.example.lpuactivity.util.FingerPrintManagementUtil
 import com.example.lpuactivity.util.email
 import com.squareup.picasso.Picasso
@@ -86,9 +84,17 @@ class MainActivity2 : AppCompatActivity() {
                         call: Call<defaultResponse>,
                         response: Response<defaultResponse>
                     ) {
+                        if(response.body()==null)
+                        {
+                            Toast.makeText(this@MainActivity2, "Can't accept Your own task", Toast.LENGTH_LONG).show()
+                            finish()
 
-                        Toast.makeText(this@MainActivity2, "Task Accepted", Toast.LENGTH_LONG).show()
-                        finish()
+                        }else{
+                            println(response.body()!!)
+                            Toast.makeText(this@MainActivity2, "Task Accepted", Toast.LENGTH_LONG).show()
+                            finish()
+                        }
+
 
 
                     }

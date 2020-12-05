@@ -22,6 +22,7 @@ import android.widget.Toast
 import org.jetbrains.anko.doAsync
 import java.util.*
 
+var user_name=""
 
 class NotificationsFragment : Fragment() {
 
@@ -74,9 +75,14 @@ class NotificationsFragment : Fragment() {
                             profile_username.text =
                                 dservice.Firstname.toLowerCase(Locale.getDefault()).capitalize(
                                     Locale.ROOT)
+                            user_name=dservice.Firstname
+
+
                             profile_Number.text =
                                 dservice.contactNo.toString().toLowerCase(Locale.getDefault())
                                     .capitalize(Locale.ROOT)
+
+
                             profile_Email.text = dservice.Email.toLowerCase(Locale.getDefault())
                                 .capitalize(Locale.ROOT)
 

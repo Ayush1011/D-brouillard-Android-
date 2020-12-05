@@ -8,4 +8,6 @@
     <color name="home_color">#58c4ae</color>
     <color name="image_color">#D1E3DF</color>
 
+    <color name="black_overlay">#66000000</color>
+
 </resources>

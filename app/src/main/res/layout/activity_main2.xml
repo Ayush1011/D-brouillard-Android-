@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".util.MainActivity2">
+    tools:context=".util.update_post.MainActivity2">
 
 
     <ScrollView
@@ -162,9 +162,10 @@
                 android:src="@drawable/share_icon"/>
 
             <Button
+
                 android:id="@+id/detail_button"
                 android:layout_weight="1"
-                android:text="Accept"
+                android:text="@string/detail_button"
                 android:textColor="#fff"
                 android:background="@drawable/detail_button"
                 android:layout_width="wrap_content"

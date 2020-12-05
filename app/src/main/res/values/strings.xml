@@ -5,6 +5,12 @@
     <string name="title_notifications">Notifications</string>
     <string name="home_word">Cryptocurrency Landing Page</string>
     <string name="home_word1">Design part is important because this decides the way somebody will judge your app. No matter if we are talking about Android UI </string>
+    <string name="title_activity_fullscreen">FullscreenActivity</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
+    <string name="title_activity_post_task">FullscreenActivity</string>
+    <string name="detail_button">Accept</string>
+    <string name="detail_second_button">Remove</string>
 
 
 </resources>

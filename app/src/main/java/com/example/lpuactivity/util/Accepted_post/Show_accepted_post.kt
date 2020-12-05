@@ -1,4 +1,4 @@
-package com.example.lpuactivity.util
+package com.example.lpuactivity.util.Accepted_post
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -9,6 +9,7 @@ import com.example.lpuactivity.Retrofit_requests.api.sevice.Builder
 import com.example.lpuactivity.Retrofit_requests.api.sevice.Dservice
 import com.example.lpuactivity.models.Video1
 import com.example.lpuactivity.util.Personal_Post.personal_post_adaptar
+import com.example.lpuactivity.util.email
 import kotlinx.android.synthetic.main.activity_show_accepted_post.*
 import retrofit2.Call
 import retrofit2.Callback
@@ -42,7 +43,7 @@ class Show_accepted_post : AppCompatActivity() {
                    accepted_post.layoutManager =
                        GridLayoutManager(this@Show_accepted_post, 2) // homeadapter grid layout
 
-                   accepted_post.adapter = personal_post_adaptar(dservice)
+                   accepted_post.adapter = accepted_post_adaptar(dservice)
                }
            }
 

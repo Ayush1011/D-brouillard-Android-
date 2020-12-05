@@ -1,5 +1,7 @@
 package com.example.lpuactivity.util
 
+import android.annotation.SuppressLint
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -10,6 +12,13 @@ import com.example.lpuactivity.Retrofit_requests.api.RetrofitClient
 import com.example.lpuactivity.models.defaultResponse
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_main2.*
+import kotlinx.android.synthetic.main.activity_main2.detail_button
+import kotlinx.android.synthetic.main.activity_main2.detail_description
+import kotlinx.android.synthetic.main.activity_main2.detail_name
+import kotlinx.android.synthetic.main.activity_main2.detail_price
+import kotlinx.android.synthetic.main.activity_main2.detailimage
+import kotlinx.android.synthetic.main.activity_main2.mainactivity2textview
+import kotlinx.android.synthetic.main.personal_post_detail.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -18,11 +27,14 @@ import java.util.concurrent.Executors
 
 
 
-var id=""
-class MainActivity2 : AppCompatActivity() {
+var Per_id=""
+class Personal_post_detail : AppCompatActivity() {
+    @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main2)
+        detail_button.text = """Remove""";
+     
         supportActionBar?.hide()
 
 
@@ -35,7 +47,7 @@ class MainActivity2 : AppCompatActivity() {
         val postby=intent.getStringExtra("Postby")
         val price: String? ="₹ "+intent.getStringExtra("Price")
         val description=intent.getStringExtra("Description")
-        id = intent.getStringExtra("Id").toString()
+        Per_id = intent.getStringExtra("Id").toString()
 
 
         if (postby != null) {
@@ -76,20 +88,23 @@ class MainActivity2 : AppCompatActivity() {
         override fun onAuthenticationSucceeded(result: BiometricPrompt.AuthenticationResult) {
             super.onAuthenticationSucceeded(result)
             runOnUiThread {
-                Toast.makeText(this@MainActivity2, id, Toast.LENGTH_LONG).show()
-                RetrofitClient.instance.updateTask(id).enqueue(object: Callback<defaultResponse>{
+                Toast.makeText(this@Personal_post_detail, Per_id, Toast.LENGTH_LONG).show()
+                RetrofitClient.instance.deletepost(Per_id).enqueue(object: Callback<defaultResponse>{
                     override fun onResponse(
                         call: Call<defaultResponse>,
                         response: Response<defaultResponse>
                     ) {
 
-                        Toast.makeText(this@MainActivity2, "Task Accepted", Toast.LENGTH_LONG).show()
 
+
+                        Toast.makeText(this@Personal_post_detail, "Task Deleted", Toast.LENGTH_LONG).show()
+
+                        finish()
 
                     }
 
                     override fun onFailure(call: Call<defaultResponse>, t: Throwable) {
-                        Toast.makeText(this@MainActivity2, "Task failed to Accept", Toast.LENGTH_LONG).show()
+                        Toast.makeText(this@Personal_post_detail, "Task failed to Delete", Toast.LENGTH_LONG).show()
 
                     }
 
@@ -100,7 +115,7 @@ class MainActivity2 : AppCompatActivity() {
 
         override fun onAuthenticationFailed() {
             super.onAuthenticationFailed()
-            Log.e("MainActivity", " Failed login")
+            Toast.makeText(this@Personal_post_detail, "Task failed to Delete", Toast.LENGTH_LONG).show()
         }
     }
 }

@@ -8,6 +8,7 @@ import com.example.lpuactivity.R
 import com.example.lpuactivity.Retrofit_requests.api.sevice.Builder
 import com.example.lpuactivity.Retrofit_requests.api.sevice.Dservice
 import com.example.lpuactivity.models.Video1
+import com.example.lpuactivity.util.access
 import com.example.lpuactivity.util.email
 import kotlinx.android.synthetic.main.activity_see_post.*
 import retrofit2.Call
@@ -27,7 +28,7 @@ class SeePost : AppCompatActivity() {
 
         val post =  Builder.buildService(Dservice::class.java)
         println(email)
-        val requestCall = post.getpost(email!!)
+        val requestCall = post.getpost(email!!, access!!)
         requestCall.enqueue(object : Callback<List<Video1>> {
             override fun onResponse(
                 call: Call<List<Video1>>,

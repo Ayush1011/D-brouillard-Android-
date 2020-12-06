@@ -44,6 +44,8 @@ data class Video1(
     val upvote:Int,
     @SerializedName("Email")
     val email:String,
+    @SerializedName("Doneby")
+    val doneby:String,
     @SerializedName("IsDone")
     val isdone:Boolean,
     @SerializedName("_id")

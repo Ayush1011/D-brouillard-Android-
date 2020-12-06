@@ -106,7 +106,7 @@
                     android:layout_gravity="center"
                     android:layout_width="match_parent"
                     android:layout_height="70dp"
-                    android:src="@drawable/ic_baseline_favorite_24"/>
+                    android:src="@drawable/ic_accept_task"/>
 
 
 
@@ -166,8 +166,6 @@
                 android:layout_gravity="center_vertical"
                 android:gravity="center"
                 android:orientation="vertical"
-                android:text="Identity"
-
                 android:textStyle="italic" />
 
 
@@ -175,6 +173,7 @@
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/your_accepted_task_dashboard"
             android:gravity="center"
 
             android:layout_margin="5dp"
@@ -195,7 +194,7 @@
                     android:layout_gravity="center"
                     android:layout_width="match_parent"
                     android:layout_height="70dp"
-                    android:src="@drawable/ic_baseline_movie_creation_24"/>
+                    android:src="@drawable/ic_your_accepted_task"/>
 
 
 
@@ -209,7 +208,7 @@
                 android:layout_gravity="center_vertical"
                 android:gravity="center"
                 android:orientation="vertical"
-                android:text="Content"
+                android:text="your Task"
 
                 android:textStyle="italic" />
 
@@ -280,7 +279,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:layout_weight="1"
-                            android:src="@drawable/ic_baseline_sports_volleyball_24"
+                            android:src="@drawable/ic_baseline_timeline_24"
                             tools:ignore="Suspicious0dp">
 
                         </ImageView>

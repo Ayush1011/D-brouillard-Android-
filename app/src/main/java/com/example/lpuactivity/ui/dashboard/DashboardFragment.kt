@@ -13,6 +13,7 @@ import com.example.lpuactivity.R
 import com.example.lpuactivity.util.postTask.Posttask
 import com.example.lpuactivity.util.Personal_Post.SeePost
 import com.example.lpuactivity.util.Accepted_post.Show_accepted_post
+import com.example.lpuactivity.util.your_accepted_post.your_accepted_work
 import kotlinx.android.synthetic.main.fragment_dashboard.*
 
 class DashboardFragment : Fragment() {
@@ -59,6 +60,11 @@ class DashboardFragment : Fragment() {
 
         your_accepted_task!!.setOnClickListener {
             val intent = Intent(context, Show_accepted_post::class.java)
+            startActivity(intent)
+
+        }
+        your_accepted_task_dashboard!!.setOnClickListener {
+            val intent = Intent(context,your_accepted_work::class.java)
             startActivity(intent)
 
         }

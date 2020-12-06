@@ -3,30 +3,36 @@ package com.example.lpuactivity.Retrofit_requests.api.sevice
 import com.example.lpuactivity.models.Userinfo
 import com.example.lpuactivity.models.Video
 import com.example.lpuactivity.models.Video1
+import com.example.lpuactivity.models.accessToken
+import com.example.lpuactivity.util.access
 
 import retrofit2.Call
 import retrofit2.http.*
 
 interface Dservice {
+
+    val a: String
+        get() = access!!
+
     // get user info
-    @GET("userinfo/{id}")
-    @Headers("Authorization:eyJhbGciOiJIUzI1NiJ9.YXl4eHVzaDI.pIp830uYSgWsuOOXRAFCgwjTJr12xw-UehSA8bX6358", "x-foo: bar")
-    fun getUser(@Path("id")id:String?): Call<Userinfo>
+    @GET("userinfo/{id}/{token}")
+    fun getUser(@Path("id")id:String?, @Path("token") token: String): Call<Userinfo>
 
     // get all tasks
 
-    @GET("tasks")
-    @Headers("Authorization:eyJhbGciOiJIUzI1NiJ9.YXl4eHVzaDI.pIp830uYSgWsuOOXRAFCgwjTJr12xw-UehSA8bX6358", "x-foo: bar")
-    fun getTask(): Call<List<Video>>
+    @GET("tasks/{token}")
+//    @Headers("Authorization"+ ${a} )
+    fun getTask(@Path("token") token: String?): Call<List<Video>>
 
 
-    @GET("tasks/{id}")
-    @Headers("Authorization:eyJhbGciOiJIUzI1NiJ9.YXl4eHVzaDI.pIp830uYSgWsuOOXRAFCgwjTJr12xw-UehSA8bX6358", "x-foo: bar")
-    fun getpost(@Path("id") id: String):Call<List<Video1>>
+    @GET("tasks/{id}/{token}")
+    fun getpost(@Path("id") id: String, @Path("token") token: String):Call<List<Video1>>
 
 
-    @GET("tasks/acc/{id}")
-    @Headers("Authorization:eyJhbGciOiJIUzI1NiJ9.YXl4eHVzaDI.pIp830uYSgWsuOOXRAFCgwjTJr12xw-UehSA8bX6358", "x-foo: bar")
-    fun get_acc_post(@Path("id") id: String):Call<List<Video1>>
+    @GET("tasks/acc/{id}/{token}")
+    fun get_acc_post(@Path("id") id: String, @Path("token") token: String):Call<List<Video1>>
+
+    @GET("tasks/yours/{id}/{token}")
+    fun get_yours_post(@Path("id") id: String, @Path("token") token: String):Call<List<Video1>>
 
 }

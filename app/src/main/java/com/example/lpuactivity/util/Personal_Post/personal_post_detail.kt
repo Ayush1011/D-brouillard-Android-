@@ -10,6 +10,7 @@ import com.example.lpuactivity.R
 import com.example.lpuactivity.Retrofit_requests.api.RetrofitClient
 import com.example.lpuactivity.models.defaultResponse
 import com.example.lpuactivity.util.FingerPrintManagementUtil
+import com.example.lpuactivity.util.access
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_main2.detail_button
 import kotlinx.android.synthetic.main.activity_main2.detail_description
@@ -86,8 +87,7 @@ class Personal_post_detail : AppCompatActivity() {
         override fun onAuthenticationSucceeded(result: BiometricPrompt.AuthenticationResult) {
             super.onAuthenticationSucceeded(result)
             runOnUiThread {
-                Toast.makeText(this@Personal_post_detail, Per_id, Toast.LENGTH_LONG).show()
-                RetrofitClient.instance.deletepost(Per_id).enqueue(object: Callback<defaultResponse>{
+                RetrofitClient.instance.deletepost(Per_id, access!!).enqueue(object: Callback<defaultResponse>{
                     override fun onResponse(
                         call: Call<defaultResponse>,
                         response: Response<defaultResponse>

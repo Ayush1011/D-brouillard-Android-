@@ -17,6 +17,7 @@ import com.example.lpuactivity.Retrofit_requests.api.sevice.Builder
 import com.example.lpuactivity.Retrofit_requests.api.sevice.Dservice
 import com.example.lpuactivity.models.Userinfo
 import com.example.lpuactivity.models.defaultResponse
+import com.example.lpuactivity.util.access
 import com.example.lpuactivity.util.email
 import com.google.firebase.storage.FirebaseStorage
 import kotlinx.android.synthetic.main.activity_posttask.*
@@ -178,7 +179,7 @@ class Posttask : AppCompatActivity() {
     fun getuser() {
 
                 val Dservice = Builder.buildService(Dservice::class.java)  // builder service from retrofit request
-                val requestCall = Dservice.getUser(email) // email from loginfragment
+                val requestCall = Dservice.getUser(email,access!!) // email from loginfragment
 
                 requestCall.enqueue(object : Callback<Userinfo> {
                     override fun onResponse(
@@ -258,7 +259,8 @@ class Posttask : AppCompatActivity() {
 
 
 
-        RetrofitClient.instance.postwork(email,post_title, userName,post_des,post_price,imagename,).enqueue(object :
+        RetrofitClient.instance.postwork(email,post_title, userName,post_des,post_price,imagename,
+         access!!).enqueue(object :
             Callback<defaultResponse> {
             override fun onResponse(
                 call: Call<defaultResponse>,

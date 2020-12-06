@@ -15,10 +15,18 @@ import com.example.lpuactivity.models.Userinfo
 import com.example.lpuactivity.models.defaultResponse
 import com.example.lpuactivity.ui.notifications.user_name
 import com.example.lpuactivity.util.FingerPrintManagementUtil
+import com.example.lpuactivity.util.access
 import com.example.lpuactivity.util.email
 import com.example.lpuactivity.util.update_post.id
 import com.squareup.picasso.Picasso
+import kotlinx.android.synthetic.main.activity_accepted_task_detail.*
 import kotlinx.android.synthetic.main.activity_main2.*
+import kotlinx.android.synthetic.main.activity_main2.detail_button
+import kotlinx.android.synthetic.main.activity_main2.detail_description
+import kotlinx.android.synthetic.main.activity_main2.detail_name
+import kotlinx.android.synthetic.main.activity_main2.detail_price
+import kotlinx.android.synthetic.main.activity_main2.detailimage
+import kotlinx.android.synthetic.main.activity_main2.mainactivity2textview
 import kotlinx.android.synthetic.main.fragment_notifications.*
 import org.jetbrains.anko.doAsync
 import retrofit2.Call
@@ -81,7 +89,7 @@ class accepted_task_detail : AppCompatActivity() {
 
 
         val Dservice = Builder.buildService(Dservice::class.java)  // builder service from retrofit request
-        val requestCall = Dservice.getUser(email) // email from loginfragment
+        val requestCall = Dservice.getUser(email!!, access!!) // email from loginfragment
 
         requestCall.enqueue(object : Callback<Userinfo> {
             override fun onResponse(
@@ -96,8 +104,9 @@ class accepted_task_detail : AppCompatActivity() {
                     // SET VALUES FOR EACH TEXT FEILD
 
 
-                    UserName =dservice.Firstname
 
+                    UserName =dservice.Firstname
+                    detail_number.text=dservice.contactNo.toString()
 
 
 
@@ -129,7 +138,7 @@ class accepted_task_detail : AppCompatActivity() {
             super.onAuthenticationSucceeded(result)
             runOnUiThread {
                 Toast.makeText(this@accepted_task_detail, id, Toast.LENGTH_LONG).show()
-                RetrofitClient.instance.rejectTask(id).enqueue(object:
+                RetrofitClient.instance.rejectTask(id, access!!).enqueue(object:
                     Callback<defaultResponse> {
                     override fun onResponse(
                         call: Call<defaultResponse>,

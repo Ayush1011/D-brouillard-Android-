@@ -8,14 +8,17 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.lpuactivity.R
 import com.example.lpuactivity.Retrofit_requests.api.RetrofitClient
+import com.example.lpuactivity.models.accessToken
 import com.example.lpuactivity.models.defaultResponse
 import com.example.lpuactivity.ui.notifications.NotificationsFragment
+import com.example.lpuactivity.util.Accepted_post.accepted_task_detail
 import kotlinx.android.synthetic.main.activity_login_screen.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
 var email:String?=""
+var access:String?=""
 class LoginScreen : AppCompatActivity() {
     private val final:String="example.txt"
 
@@ -24,6 +27,11 @@ class LoginScreen : AppCompatActivity() {
         setContentView(R.layout.activity_login_screen)
 
         LoadData() //load data
+
+        signup_id.setOnClickListener {
+            val intent = Intent (this, signup::class.java)
+            startActivity(intent)
+        }
 
         signup_button.setOnClickListener {
              email =username.text.toString().trim()
@@ -46,29 +54,33 @@ class LoginScreen : AppCompatActivity() {
             RetrofitClient.instance.createUser(
                 email,
                 Password,
-            ).enqueue(object : Callback<defaultResponse> {
+            ).enqueue(object : Callback<accessToken> {
                 override fun onResponse(
-                    call: Call<defaultResponse>,
-                    response: Response<defaultResponse>
+                    call: Call<accessToken>,
+                    response: Response<accessToken>
                 ) {
 
-                    println(response.body())
                     if (response.body() != null) {
+
+
+                        access=response.body()!!.accessT
                         saveData()
-//                        val fragment = NotificationsFragment()
-//                        fragment.getuser()
                         val intent = Intent(this@LoginScreen, MainActivity::class.java)
                         startActivity(intent)
 
                     } else {
-                        Toast.makeText(this@LoginScreen, "Fail", Toast.LENGTH_SHORT).show()
+                        println(response.body()!!.accessT)
+
+                        Toast.makeText(this@LoginScreen, "Fail to login", Toast.LENGTH_SHORT).show()
 
                     }
 
 
                 }
 
-                override fun onFailure(call: Call<defaultResponse>, t: Throwable) {
+                override fun onFailure(call: Call<accessToken>, t: Throwable) {
+
+
                     Toast.makeText(this@LoginScreen, "Fail", Toast.LENGTH_SHORT).show()
                 }
 
@@ -99,6 +111,7 @@ class LoginScreen : AppCompatActivity() {
             editor.apply{
                 putString("email", email)
                 putBoolean("BOOLEAN_KEY", true)
+                putString("accessToken", access)
 
             }.apply()
             Toast.makeText(this@LoginScreen, "saved ", Toast.LENGTH_LONG).show()
@@ -116,12 +129,13 @@ class LoginScreen : AppCompatActivity() {
         val sharedPreferences: SharedPreferences =
             getSharedPreferences("sharedPrefs", Context.MODE_PRIVATE)!!
 
-//        val preferences = getSharedPreferences("sharedPrefs", MODE_PRIVATE)
+        val preferences = getSharedPreferences("sharedPrefs", MODE_PRIVATE)
 //        val editor = preferences.edit()
 //        editor.clear()
 //        editor.apply()
-//        finish()
-        val savedString = sharedPreferences.getString("STRING_KEY", null)
+
+        access = sharedPreferences.getString("accessToken", "")
+
         email = sharedPreferences.getString("email", "fail")?.toString()
         val savedBoolean = sharedPreferences.getBoolean("BOOLEAN_KEY", false)
 

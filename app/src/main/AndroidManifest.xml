@@ -14,7 +14,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".util.Accepted_post.accepted_task_detail"></activity>
+        <activity android:name=".util.signup"></activity>
+        <activity android:name=".util.your_accepted_post.your_accepted_work" />
+        <activity android:name=".util.Accepted_post.accepted_task_detail" />
         <activity android:name=".util.Accepted_post.Show_accepted_post" />
         <activity android:name=".util.Personal_Post.SeePost" />
         <activity android:name=".util.postTask.Posttask" />

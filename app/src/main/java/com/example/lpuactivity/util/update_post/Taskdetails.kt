@@ -1,5 +1,6 @@
 package com.example.lpuactivity.util.update_post
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -9,6 +10,7 @@ import com.example.lpuactivity.R
 import com.example.lpuactivity.Retrofit_requests.api.RetrofitClient
 import com.example.lpuactivity.models.defaultResponse
 import com.example.lpuactivity.util.FingerPrintManagementUtil
+import com.example.lpuactivity.util.access
 import com.example.lpuactivity.util.email
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_main2.*
@@ -55,6 +57,17 @@ class MainActivity2 : AppCompatActivity() {
             .centerCrop()
             .into(detailimage)
 
+        share_word.setOnClickListener{
+
+            val message="Got Loads of Assignments? We got you covered with Débrouillard Post your task here and individuals around the globe will assist you with finishing it. " +
+                    "download from www.techronx.com and see this amazing Task for You : " +title
+            val intent = Intent()
+            intent.action=Intent.ACTION_SEND
+            intent.putExtra(Intent.EXTRA_TEXT,message)
+            intent.type="text/plain"
+            startActivity(Intent.createChooser(intent,"share to: "))
+        }
+
 
 
         detail_button.setOnClickListener {
@@ -78,8 +91,7 @@ class MainActivity2 : AppCompatActivity() {
         override fun onAuthenticationSucceeded(result: BiometricPrompt.AuthenticationResult) {
             super.onAuthenticationSucceeded(result)
             runOnUiThread {
-                Toast.makeText(this@MainActivity2, id, Toast.LENGTH_LONG).show()
-                RetrofitClient.instance.updateTask(id, email).enqueue(object: Callback<defaultResponse>{
+                RetrofitClient.instance.updateTask(id, email, access!!).enqueue(object: Callback<defaultResponse>{
                     override fun onResponse(
                         call: Call<defaultResponse>,
                         response: Response<defaultResponse>

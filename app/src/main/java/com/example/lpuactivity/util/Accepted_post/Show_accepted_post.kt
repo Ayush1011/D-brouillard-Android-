@@ -9,6 +9,7 @@ import com.example.lpuactivity.Retrofit_requests.api.sevice.Builder
 import com.example.lpuactivity.Retrofit_requests.api.sevice.Dservice
 import com.example.lpuactivity.models.Video1
 import com.example.lpuactivity.util.Personal_Post.personal_post_adaptar
+import com.example.lpuactivity.util.access
 import com.example.lpuactivity.util.email
 import kotlinx.android.synthetic.main.activity_show_accepted_post.*
 import retrofit2.Call
@@ -30,7 +31,7 @@ class Show_accepted_post : AppCompatActivity() {
 
    fun get_acc_post(){
        val Dservice = Builder.buildService(Dservice::class.java)
-       val requestCall = Dservice.get_acc_post(email!!)
+       val requestCall = Dservice.get_acc_post(email!!, access!!)
        requestCall.enqueue(object : Callback<List<Video1>> {
            override fun onResponse(
                call: Call<List<Video1>>,
@@ -39,6 +40,11 @@ class Show_accepted_post : AppCompatActivity() {
 
                if (response.isSuccessful) {
                    val dservice = response.body()!!
+
+                   if(response.body()!!.count()==0){
+                       accepted_task_no_task.text="You accepted no tasks"
+
+                   }
 
                    accepted_post.layoutManager =
                        GridLayoutManager(this@Show_accepted_post, 2) // homeadapter grid layout

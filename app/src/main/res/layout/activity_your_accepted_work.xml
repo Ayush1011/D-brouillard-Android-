@@ -26,7 +26,7 @@
             android:layout_marginLeft="5dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Accepted tasks..."
+            android:text="Your Accepted tasks..."
 
             android:textSize="35dp"
             />

@@ -54,12 +54,12 @@
 
 
                     <TextView
-
+                        android:id="@+id/profile_main_name"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_horizontal"
                         android:gravity="center"
-                        android:text="Ayush Kumar"
+                        android:text="Your Name"
                         android:textSize="30dp"
                         android:textStyle="bold|italic" />
 

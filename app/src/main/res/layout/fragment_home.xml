@@ -74,6 +74,13 @@
 
         </LinearLayout>
 
+        <TextView
+            android:id="@+id/home_ui_no_task"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:gravity="center"/>
+
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/homefragmentrecycle"

@@ -65,6 +65,9 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         onResume()
 
+        if(home_ui_no_task==null){
+            home_ui_no_task.text="no task"
+        }
 
         homefragmentrecycle.setOnClickListener {
 
@@ -90,8 +93,9 @@ class HomeFragment : Fragment() {
             val handler = Handler(Looper.getMainLooper())
             handler.post {
 
-                println(access)
+                println("hiiihelo"+access)
                 val Dservice = Builder.buildService(Dservice::class.java)
+
                 val requestCall = Dservice.getTask(access!!)
                 requestCall.enqueue(object : Callback<List<Video>> {
                     override fun onResponse(
@@ -100,12 +104,23 @@ class HomeFragment : Fragment() {
                     ) {
 
                         if (response.isSuccessful) {
-                            val dservice = response.body()!!
+
+
+
+                            if(response.body()!!.count()<=0)
+                            {
+
+                                    home_ui_no_task?.text="No Task available in your region!! "
+
+
+
+                            }
+                            val dservice = response.body()!!.reversed()
                             println(dservice)
-                            homefragmentrecycle.layoutManager =
+                            homefragmentrecycle?.layoutManager =
                                 GridLayoutManager(activity, 2) // homeadapter grid layout
 
-                            homefragmentrecycle.adapter = Home_Adapter(dservice)
+                            homefragmentrecycle?.adapter = Home_Adapter(dservice)
                         }
                     }
 

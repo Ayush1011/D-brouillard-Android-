@@ -74,7 +74,7 @@
             android:drawablePadding="10dp"
             android:drawableStart="@drawable/ic_password"
             android:ems="10"
-            android:hint="User Name"
+            android:hint="Password"
             android:inputType="textPersonName"
             android:padding="10dp"
             android:textColorHint="@color/hint_color"

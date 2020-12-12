@@ -25,7 +25,7 @@
             android:layout_height="wrap_content"
             android:textSize="35dp"
 
-            android:text="Personal Views"/>
+            android:text="Accepted Task"/>
 
     </LinearLayout>
 

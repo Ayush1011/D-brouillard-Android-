@@ -7,7 +7,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 object RetrofitClient {
 
-    private const val Base_Url="http://192.168.1.8:3000/"  // ip address for local host
+    private const val Base_Url="https://protected-oasis-07406.herokuapp.com/"  // ip address for local host
 
     private val okHttpClient=OkHttpClient.Builder()
         .addInterceptor { chain->

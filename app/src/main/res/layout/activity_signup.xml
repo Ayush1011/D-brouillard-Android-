@@ -79,6 +79,8 @@
                         android:textStyle="italic"
                         android:textSize="15dp"
                         android:hint="Email"
+                        android:inputType="textEmailAddress"
+
                         />
                 </LinearLayout>
 
@@ -122,6 +124,8 @@
                         android:textStyle="italic"
                         android:textSize="15dp"
                         android:hint="Name"
+                        android:inputType="textPersonName"
+
                         />
                 </LinearLayout>
 
@@ -165,6 +169,7 @@
                         android:textStyle="italic"
                         android:textSize="15dp"
                         android:hint="Password"
+
                         />
                 </LinearLayout>
 

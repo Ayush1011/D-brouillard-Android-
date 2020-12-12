@@ -12,8 +12,9 @@ interface Api {
 
   // update task after accepting
   @FormUrlEncoded
-    @POST("tasks/{id}")
-    fun updateTask(@Path("id") id: String,  @Field("Email") email: String?,@Header("Authorization") token: String ):Call<defaultResponse>
+    @POST("tasks/{id}/{token}")
+    fun updateTask(@Path("id") id: String,  @Field("Email") email: String?,@Path("token") token: String
+  ):Call<accessToken>
 
 
     @FormUrlEncoded
@@ -49,14 +50,13 @@ interface Api {
 
     @FormUrlEncoded
     @POST("signup")
-//    @Headers("Authorization:eyJhbGciOiJIUzI1NiJ9.YXl4eHVzaDI.pIp830uYSgWsuOOXRAFCgwjTJr12xw-UehSA8bX6358", "x-foo: bar")
     fun signupuser(@Field("Firstname")Firstname: String?,
                    @Field("Email") Email: String?,
                  @Field("contactNo") contactNo: Long?,
                  @Field("password") password: String?,
 
 
-                 ):Call<defaultResponse>
+                 ):Call<accessToken>
 
 
 }

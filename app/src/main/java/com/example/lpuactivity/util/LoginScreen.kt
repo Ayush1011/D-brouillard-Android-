@@ -83,10 +83,14 @@ class LoginScreen : AppCompatActivity() {
                     if (response.body() != null) {
 
 
-                        access=response.body()!!.accessT
-                        saveData()
-                        val intent = Intent(this@LoginScreen, MainActivity::class.java)
-                        startActivity(intent)
+                        access=response.body()?.accessT.toString()
+                            saveData()
+                            val intent = Intent(this@LoginScreen, MainActivity::class.java)
+                            startActivity(intent)
+
+
+
+
 
                     } else {
                         println(response.body()!!.accessT)
@@ -133,7 +137,7 @@ class LoginScreen : AppCompatActivity() {
                 putBoolean("BOOLEAN_KEY", true)
                 putString("accessToken", access)
 
-            }.apply()
+            }.commit()
             Toast.makeText(this@LoginScreen, "saved ", Toast.LENGTH_LONG).show()
 
 

@@ -156,7 +156,7 @@ class NotificationsFragment : Fragment() {
             val handler = Handler(Looper.getMainLooper())
             handler.post {
                 val Dservice = Builder.buildService(Dservice::class.java)  // builder service from retrofit request
-                val requestCall = Dservice.getUser(email, access!!) // email from loginfragment
+                val requestCall = Dservice.getUser(email!!, access!!) // email from loginfragment
 
                 requestCall.enqueue(object : Callback<Userinfo> {
                     override fun onResponse(
@@ -165,7 +165,7 @@ class NotificationsFragment : Fragment() {
                     ) {
                  
                         val dservice = response.body()!!
-                        println(response.body()!!)
+
                         if (response.isSuccessful) {
 
                             // SET VALUES FOR EACH TEXT FEILD

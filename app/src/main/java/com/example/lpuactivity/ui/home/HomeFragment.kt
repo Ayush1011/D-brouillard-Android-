@@ -24,6 +24,7 @@ import com.example.lpuactivity.Retrofit_requests.api.sevice.Builder
 import com.example.lpuactivity.Retrofit_requests.api.sevice.Dservice
 import com.example.lpuactivity.models.Video
 import com.example.lpuactivity.util.access
+import com.example.lpuactivity.util.email
 import kotlinx.android.synthetic.main.fragment_home.*
 import org.jetbrains.anko.doAsync
 import retrofit2.Call
@@ -93,7 +94,7 @@ class HomeFragment : Fragment() {
             val handler = Handler(Looper.getMainLooper())
             handler.post {
 
-                println("hiiihelo"+access)
+                println("hiiihelo"+access+" "+ email)
                 val Dservice = Builder.buildService(Dservice::class.java)
 
                 val requestCall = Dservice.getTask(access!!)

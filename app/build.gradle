@@ -4,6 +4,14 @@ apply plugin: 'kotlin-android-extensions'
 apply plugin: 'com.android.application'
 apply plugin: 'com.google.gms.google-services'
 android {
+    signingConfigs {
+        jkskey2 {
+            storeFile file('/home/ayush/AndroidStudioProjects/lpuactivity/app/src/main/java/jksScript/jksScript.jks')
+            keyPassword 'Qwerty@00'
+            storePassword 'Qwerty@00'
+            keyAlias 'key0'
+        }
+    }
     compileSdkVersion 30
     buildToolsVersion "30.0.0"
 
@@ -20,10 +28,12 @@ android {
 
     buildTypes {
         release {
-
-            minifyEnabled true
-            shrinkResources true
+            debuggable true
+            minifyEnabled false
+            shrinkResources false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.jkskey2
+            multiDexEnabled true
         }
     }
     compileOptions {

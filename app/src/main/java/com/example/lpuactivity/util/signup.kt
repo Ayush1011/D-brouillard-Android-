@@ -1,20 +1,20 @@
 package com.example.lpuactivity.util
 
+import android.app.ProgressDialog
 import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import com.example.lpuactivity.R
 import com.example.lpuactivity.Retrofit_requests.api.RetrofitClient
 import com.example.lpuactivity.models.accessToken
-import com.example.lpuactivity.models.defaultResponse
-import kotlinx.android.synthetic.main.activity_login_screen.*
 import kotlinx.android.synthetic.main.activity_signup.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+
 
 class signup : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -53,6 +53,17 @@ class signup : AppCompatActivity() {
                 signup_number.requestFocus()
                 return@setOnClickListener
             }
+
+
+            val progress = ProgressDialog(this)
+            progress.setTitle("Loading")
+            progress.setMessage("Wait while loading...")
+            progress.setCancelable(false) // disable dismiss by tapping outside of the dialog
+
+            progress.show()
+
+
+
             RetrofitClient.instance.signupuser(
                 names,
                 email,
@@ -65,29 +76,25 @@ class signup : AppCompatActivity() {
                 ) {
 
 
-                    println(response.body())
+                    progress.dismiss()
 
-                         val intent = Intent(this@signup, LoginScreen::class.java)
+                    val intent = Intent(this@signup, LoginScreen::class.java)
 
-                        intent.putExtra("access", access)
-                        intent.putExtra("BOOLEAN_KEY", true)
-                        intent.putExtra("email", email)
-                        intent.putExtra("password",Password)
+                    intent.putExtra("access", access)
+                    intent.putExtra("BOOLEAN_KEY", true)
+                    intent.putExtra("email", email)
+                    intent.putExtra("password", Password)
 
-                        startActivity(intent)
-
-
+                    startActivity(intent)
 
 
-
-                    }
-
-
+                }
 
 
                 override fun onFailure(call: Call<accessToken>, t: Throwable) {
-                    println("hiiii"+t.localizedMessage)
+
                     Toast.makeText(this@signup, "Failed to sign up", Toast.LENGTH_SHORT).show()
+                    progress.dismiss()
                 }
 
             }

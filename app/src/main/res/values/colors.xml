@@ -4,10 +4,15 @@
     <color name="colorPrimaryDark">#1f1c26</color>
     <color name="colorAccent">#ce2a5e</color>
     <color name="white">#fff</color>
-    <color name="hint_color">#c1c1c1</color>
+    <color name="hint_color">#fff</color>
     <color name="home_color">#58c4ae</color>
     <color name="image_color">#D1E3DF</color>
+    <color name="circle_color">#58c4ae</color>
+    <color name="circle1_color">#4DAC98</color>
 
     <color name="black_overlay">#66000000</color>
+
+    <color name="color_wave_1">#58c4ae</color>
+    <color name="color_wave_2">#0093d7</color>
 
 </resources>

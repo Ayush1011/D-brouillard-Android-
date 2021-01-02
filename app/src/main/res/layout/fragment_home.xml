@@ -7,91 +7,148 @@
     android:layout_height="match_parent"
     tools:context=".ui.home.HomeFragment">
 
-<ScrollView
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content">
-
-
-
-
-    <LinearLayout
-        android:id="@+id/fragment_Container"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
-        <LinearLayout
-            android:id="@+id/linearLayout2"
-            android:layout_width="match_parent"
-            android:layout_height='350dp'
-            android:background="@drawable/home_lec_back"
-            android:orientation="vertical"
-            tools:ignore="MissingConstraints"
-            tools:layout_editor_absoluteX="16dp"
-            tools:layout_editor_absoluteY="6dp">
+        android:layout_height="wrap_content">
 
-            <TextView
-                android:layout_width="284dp"
-                android:layout_height="160dp"
-                android:layout_gravity="center_vertical"
-                android:gravity="center_vertical"
-                android:orientation="vertical"
-                android:padding="25dp"
-                android:text="@string/home_word"
-                android:textColor="@color/white"
-                android:textSize="30dp"
-                android:textStyle="bold|italic" />
+
+
+        <LinearLayout
+
+            android:id="@+id/fragment_Container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
 
             <LinearLayout
-                android:layout_width='match_parent'
-                android:layout_height="185dp"
-                android:weightSum="3">
+
+                android:id="@+id/linearLayout2"
+                android:layout_width="match_parent"
+                android:layout_height='350dp'
+
+                android:orientation="vertical"
+                tools:ignore="MissingConstraints"
+                tools:layout_editor_absoluteX="16dp"
+                tools:layout_editor_absoluteY="6dp">
 
 
 
-                <ImageView
-                    android:layout_width='0dp'
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:src="@mipmap/ic_home_image"
+                <com.scwang.wave.MultiWaveHeader
+                    android:id="@+id/waveHeader"
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:scaleY="-1"
+                    app:mwhVelocity="1"
+                    app:mwhProgress="1"
 
-                    />
+                    app:mwhGradientAngle="45"
+                    app:mwhWaveHeight="50dp"
+                    app:mwhColorAlpha="0.45"
+                    app:mwhStartColor="@color/colorPrimaryDark"
+                    app:mwhCloseColor="@color/colorAccent"
+                    app:mwhWaves="MultiWave"/>
 
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="152dp"
-                    android:layout_gravity="center_vertical"
-                    android:layout_weight="2"
-                    android:gravity="center_vertical"
-                    android:orientation="vertical"
-                    android:padding="25dp"
-                    android:text="@string/home_word1"
-
-                    android:textStyle="italic" />
 
             </LinearLayout>
 
+
+
+            <LinearLayout
+
+                android:translationY="-50dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:id="@+id/skeletonLayout_show">
+
+
+
+                <com.facebook.shimmer.ShimmerFrameLayout
+                    android:id="@+id/shimmer_view_container"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="15dp"
+                    android:orientation="vertical"
+                    app:duration="800"
+                    >
+
+                    <!-- Adding 7 rows of placeholders -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+                        <include layout="@layout/skeleton_row_layout" />
+                        <include layout="@layout/skeleton_row_layout" />
+                        <include layout="@layout/skeleton_row_layout" />
+                        <include layout="@layout/skeleton_row_layout" />
+                        <include layout="@layout/skeleton_row_layout" />
+                        <include layout="@layout/skeleton_row_layout" />
+
+                    </LinearLayout>
+
+                </com.facebook.shimmer.ShimmerFrameLayout>
+
+
+
+
+
+            <TextView
+                android:id="@+id/home_ui_no_task"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="30dp"
+                android:text="Available Freelance work."
+                android:gravity="center"/>
+            </LinearLayout>
+
+
+
+
+
+        <androidx.cardview.widget.CardView
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:elevation="70dp"
+            android:translationY="-120dp"
+            app:cardCornerRadius="12dp">
+
+
+            <TextView
+                android:id="@+id/All_task"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Available Freelance work."
+                android:gravity="center"/>
+            <LinearLayout
+                android:layout_marginTop="50dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/replace_fragment">
+
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/homefragmentrecycle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp" />
+
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="75dp">
+
+            </LinearLayout>
         </LinearLayout>
 
-        <TextView
-            android:id="@+id/home_ui_no_task"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
 
-            android:gravity="center"/>
+    </ScrollView>
 
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/homefragmentrecycle"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp" />
-
-
-    </LinearLayout>
-
-</ScrollView>
 
 
 </com.google.android.material.circularreveal.CircularRevealRelativeLayout>

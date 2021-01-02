@@ -21,6 +21,7 @@ class SeePost : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_see_post)
         supportActionBar?.hide()
+        
         getPost()
 
     }

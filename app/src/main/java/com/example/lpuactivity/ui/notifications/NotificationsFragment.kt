@@ -81,7 +81,7 @@ class NotificationsFragment : Fragment() {
                         response: Response<List<Video1>>
                     ) {
 
-                        val dservice = response.body()!!
+
 
                         if (response.isSuccessful) {
 

@@ -25,6 +25,8 @@
                 android:id="@+id/image_home"
                 android:layout_width="match_parent"
                 android:layout_height="100dp"
+                android:layout_gravity="center_vertical"
+
                 android:src="@drawable/ic_baseline_add" />
 
 
@@ -33,6 +35,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="38dp"
                 android:gravity="center"
+                android:layout_gravity="center_vertical"
+                android:fontFamily="@font/alegreya"
 
                 android:text="text_home_recycle" />
         </LinearLayout>

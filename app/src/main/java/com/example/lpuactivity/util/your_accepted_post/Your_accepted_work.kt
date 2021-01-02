@@ -2,6 +2,7 @@ package com.example.lpuactivity.util.your_accepted_post
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import android.widget.Toast
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -18,6 +19,8 @@ import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_main2.*
 import kotlinx.android.synthetic.main.activity_see_post.*
 import kotlinx.android.synthetic.main.activity_your_accepted_work.*
+import kotlinx.android.synthetic.main.activity_your_accepted_work.shimmer_view_container
+import kotlinx.android.synthetic.main.fragment_home.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -31,6 +34,9 @@ class your_accepted_work : AppCompatActivity() {
 
 
         supportActionBar?.hide()
+        your_accepted_task_no_task.visibility=View.GONE
+        your_accepted_task_skeleton.visibility= View.VISIBLE
+        shimmer_view_container.startShimmerAnimation();
 
 
         getPost()
@@ -56,7 +62,12 @@ class your_accepted_work : AppCompatActivity() {
                     val sp1 = response.body()!!
 
                     if(response.body()!!.count()==0){
+                        your_accepted_task_no_task.visibility=View.VISIBLE
                         your_accepted_task_no_task.text="You have no Task Accepted"
+                    }else{
+                        your_accepted_task_skeleton.visibility=View.GONE
+
+                        shimmer_view_container.stopShimmerAnimation();
                     }
                     your_accepted_task_detail.layoutManager =
                         LinearLayoutManager(this@your_accepted_work)
@@ -67,7 +78,9 @@ class your_accepted_work : AppCompatActivity() {
 
             override fun onFailure(call: Call<List<Video1>>, t: Throwable) {
                 Toast.makeText(this@your_accepted_work, "Unable to load Post", Toast.LENGTH_SHORT).show()
+                skeletonLayout_show.visibility=View.GONE
 
+                shimmer_view_container.stopShimmerAnimation();
             }
 
         })

@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.circularreveal.CircularRevealRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.home.HomeFragment">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+
+        <LinearLayout
+
+            android:id="@+id/fragment_Container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+
+            <LinearLayout
+
+                android:id="@+id/linearLayout2"
+                android:layout_width="match_parent"
+                android:layout_height="281dp"
+
+                android:orientation="vertical"
+                tools:ignore="MissingConstraints"
+                tools:layout_editor_absoluteX="16dp"
+                tools:layout_editor_absoluteY="6dp">
+
+
+                <!--                <pl.droidsonroids.gif.GifImageView-->
+                <!--                    android:layout_width="match_parent"-->
+                <!--                    android:layout_height="match_parent"-->
+                <!--                    android:src="@drawable/alphatestersanimation2"-->
+                <!--                    />-->
+
+                <com.scwang.wave.MultiWaveHeader
+                    android:id="@+id/waveHeader"
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    app:mwhCloseColor="@color/color_wave_2"
+                    app:mwhColorAlpha="0.45"
+                    app:mwhGradientAngle="45"
+                    app:mwhStartColor="@color/color_wave_1"
+                    app:mwhWaveHeight="50dp" />
+
+
+            </LinearLayout>
+
+
+
+            <LinearLayout
+
+                android:translationY="-50dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:id="@+id/skeletonLayout_show">
+
+
+
+                <com.facebook.shimmer.ShimmerFrameLayout
+                    android:id="@+id/shimmer_view_container"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="15dp"
+                    android:orientation="vertical"
+                    app:duration="800"
+                    >
+
+                    <!-- Adding 7 rows of placeholders -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+                        <include layout="@layout/skeleton_row_layout" />
+                        <include layout="@layout/skeleton_row_layout" />
+                        <include layout="@layout/skeleton_row_layout" />
+                        <include layout="@layout/skeleton_row_layout" />
+                        <include layout="@layout/skeleton_row_layout" />
+                        <include layout="@layout/skeleton_row_layout" />
+
+                    </LinearLayout>
+
+                </com.facebook.shimmer.ShimmerFrameLayout>
+
+
+
+
+
+
+            </LinearLayout>
+
+
+
+
+
+
+
+
+            <LinearLayout
+              android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/replace_fragment">
+
+                <TextView
+                    android:id="@+id/All_task"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/alegreya_bold"
+                    android:gravity="center"
+                    android:text="Available Freelance work"
+                    android:textSize="20sp" />
+
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/homefragmentrecycle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp" />
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="75dp">
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+
+
+
+        </LinearLayout>
+
+
+    </ScrollView>
+
+
+
+</com.google.android.material.circularreveal.CircularRevealRelativeLayout>

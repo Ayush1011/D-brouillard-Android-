@@ -8,6 +8,7 @@ import android.widget.Toast
 import androidx.biometric.BiometricPrompt
 import com.example.lpuactivity.R
 import com.example.lpuactivity.Retrofit_requests.api.RetrofitClient
+import com.example.lpuactivity.models.accessToken
 import com.example.lpuactivity.models.defaultResponse
 import com.example.lpuactivity.util.FingerPrintManagementUtil
 import com.example.lpuactivity.util.access
@@ -91,12 +92,12 @@ class MainActivity2 : AppCompatActivity() {
         override fun onAuthenticationSucceeded(result: BiometricPrompt.AuthenticationResult) {
             super.onAuthenticationSucceeded(result)
             runOnUiThread {
-                RetrofitClient.instance.updateTask(id, email, access!!).enqueue(object: Callback<defaultResponse>{
+                RetrofitClient.instance.updateTask(id, email, access!!).enqueue(object: Callback<accessToken>{
                     override fun onResponse(
-                        call: Call<defaultResponse>,
-                        response: Response<defaultResponse>
+                        call: Call<accessToken>,
+                        response: Response<accessToken>
                     ) {
-                        if(response.body()==null)
+                        if(response.body()?.accessT =="")
                         {
                             Toast.makeText(this@MainActivity2, "Can't accept Your own task", Toast.LENGTH_LONG).show()
                             finish()
@@ -111,7 +112,7 @@ class MainActivity2 : AppCompatActivity() {
 
                     }
 
-                    override fun onFailure(call: Call<defaultResponse>, t: Throwable) {
+                    override fun onFailure(call: Call<accessToken>, t: Throwable) {
                         Toast.makeText(this@MainActivity2, "Task failed to Accept", Toast.LENGTH_LONG).show()
 
                     }

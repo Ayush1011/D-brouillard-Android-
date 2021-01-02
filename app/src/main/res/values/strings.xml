@@ -11,7 +11,9 @@
     <string name="dummy_content">DUMMY\nCONTENT</string>
     <string name="title_activity_post_task">FullscreenActivity</string>
     <string name="detail_button">Accept</string>
+
     <string name="detail_second_button">Remove</string>
+
 
 
 </resources>

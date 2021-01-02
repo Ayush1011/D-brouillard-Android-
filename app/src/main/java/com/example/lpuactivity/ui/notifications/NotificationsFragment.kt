@@ -25,7 +25,7 @@ import org.jetbrains.anko.doAsync
 import java.util.*
 
 var user_name=""
-
+private var root: View? = null
 class NotificationsFragment : Fragment() {
 
     private lateinit var notificationsViewModel: NotificationsViewModel
@@ -37,7 +37,7 @@ class NotificationsFragment : Fragment() {
     ): View? {
         notificationsViewModel =
                 ViewModelProviders.of(this).get(NotificationsViewModel::class.java)
-        val root = inflater.inflate(R.layout.fragment_notifications, container, false)
+         root = inflater.inflate(R.layout.fragment_notifications, container, false)
         notificationsViewModel.text.observe(viewLifecycleOwner, Observer {
 
         })
@@ -47,6 +47,14 @@ class NotificationsFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 
+
+        if(posted_task.text==null) {
+            posted_task!!.text = "0"
+        }
+        if(accepted_task.text==null){
+            accepted_task!!.text="0"
+
+        }
         getuser() // GET DATA FOR USER
         getPosCount()
         getAccCount()
@@ -73,12 +81,14 @@ class NotificationsFragment : Fragment() {
                         response: Response<List<Video1>>
                     ) {
 
-                        val dservice = response.body()!!
-                        println(response.body()!!)
+
+
                         if (response.isSuccessful) {
 
                             // SET VALUES FOR EACH TEXT FEILD
-                            posted_task.text= response.body()!!.count().toString()+" Task Posted"
+
+                                posted_task?.text =
+                                    response.body()!!.count().toString() + " Task Posted"
 
                         }
                     }
@@ -113,12 +123,15 @@ class NotificationsFragment : Fragment() {
                         response: Response<List<Video1>>
                     ) {
 
-                        val dservice = response.body()!!
+
                         println(response.body()!!)
                         if (response.isSuccessful) {
 
                             // SET VALUES FOR EACH TEXT FEILD
-                            accepted_task.text= response.body()!!.count().toString()+" Task Accepted"
+
+                                accepted_task?.text= response.body()!!.count().toString()+" Task Accepted"
+
+
 
                         }
                     }
@@ -143,7 +156,7 @@ class NotificationsFragment : Fragment() {
             val handler = Handler(Looper.getMainLooper())
             handler.post {
                 val Dservice = Builder.buildService(Dservice::class.java)  // builder service from retrofit request
-                val requestCall = Dservice.getUser(email, access!!) // email from loginfragment
+                val requestCall = Dservice.getUser(email!!, access!!) // email from loginfragment
 
                 requestCall.enqueue(object : Callback<Userinfo> {
                     override fun onResponse(
@@ -152,24 +165,41 @@ class NotificationsFragment : Fragment() {
                     ) {
                  
                         val dservice = response.body()!!
-                        println(response.body()!!)
+
                         if (response.isSuccessful) {
 
                             // SET VALUES FOR EACH TEXT FEILD
 
-                            profile_username.text =
-                                dservice.Firstname.toLowerCase(Locale.getDefault()).capitalize(
-                                    Locale.ROOT)
+
+                                profile_username?.text =
+                                    dservice.Firstname.toLowerCase(Locale.getDefault()).capitalize(
+                                        Locale.ROOT)
+
+
                             user_name=dservice.Firstname
 
 
-                            profile_Number.text =
-                                dservice.contactNo.toString().toLowerCase(Locale.getDefault())
+
+                                profile_main_name?.text=dservice.Firstname.toLowerCase(Locale.getDefault()).capitalize(
+                                    Locale.ROOT)
+
+
+
+
+
+                                profile_Number?.text =
+                                    dservice.contactNo.toString().toLowerCase(Locale.getDefault())
+                                        .capitalize(Locale.ROOT)
+
+
+
+                                profile_Email?.text = dservice.Email.toLowerCase(Locale.getDefault())
                                     .capitalize(Locale.ROOT)
 
 
-                            profile_Email.text = dservice.Email.toLowerCase(Locale.getDefault())
-                                .capitalize(Locale.ROOT)
+
+
+
 
 
                         }

@@ -19,6 +19,8 @@ import retrofit2.Response
 
 var email:String?=""
 var access:String?=""
+var savedBoolean:Boolean = false
+
 class LoginScreen : AppCompatActivity() {
     private val final:String="example.txt"
 
@@ -26,7 +28,25 @@ class LoginScreen : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login_screen)
 
-        LoadData() //load data
+
+        //load data
+
+        var intent = intent
+        access=intent.getStringExtra("access")
+        email=intent.getStringExtra("email")
+        savedBoolean=intent.getBooleanExtra("BOOLEAN_KEY",false)
+        var pass=intent.getStringExtra("password")
+
+        if(savedBoolean)
+        {
+            username.setText(email)
+            password.setText(pass)
+
+        }
+
+
+
+        LoadData()
 
         signup_id.setOnClickListener {
             val intent = Intent (this, signup::class.java)
@@ -63,10 +83,14 @@ class LoginScreen : AppCompatActivity() {
                     if (response.body() != null) {
 
 
-                        access=response.body()!!.accessT
-                        saveData()
-                        val intent = Intent(this@LoginScreen, MainActivity::class.java)
-                        startActivity(intent)
+                        access=response.body()?.accessT.toString()
+                            saveData()
+                            val intent = Intent(this@LoginScreen, MainActivity::class.java)
+                            startActivity(intent)
+
+
+
+
 
                     } else {
                         println(response.body()!!.accessT)
@@ -113,7 +137,7 @@ class LoginScreen : AppCompatActivity() {
                 putBoolean("BOOLEAN_KEY", true)
                 putString("accessToken", access)
 
-            }.apply()
+            }.commit()
             Toast.makeText(this@LoginScreen, "saved ", Toast.LENGTH_LONG).show()
 
 
@@ -126,6 +150,8 @@ class LoginScreen : AppCompatActivity() {
     fun LoadData()
 
     {
+
+
         val sharedPreferences: SharedPreferences =
             getSharedPreferences("sharedPrefs", Context.MODE_PRIVATE)!!
 
@@ -137,6 +163,7 @@ class LoginScreen : AppCompatActivity() {
         access = sharedPreferences.getString("accessToken", "")
 
         email = sharedPreferences.getString("email", "fail")?.toString()
+
         val savedBoolean = sharedPreferences.getBoolean("BOOLEAN_KEY", false)
 
 

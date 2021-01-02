@@ -29,6 +29,15 @@
 
     </LinearLayout>
 
+    <TextView
+        android:id="@+id/presonal_post_no_post"
+        android:gravity="center"
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:layout_gravity="center_horizontal"/>
+
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/personal_post"

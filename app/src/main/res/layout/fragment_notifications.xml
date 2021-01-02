@@ -11,62 +11,136 @@
         android:id="@+id/scrollView2"
         android:layout_width="match_parent"
 
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         tools:ignore="MissingConstraints">
 
         <LinearLayout
 
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:orientation="vertical">
 
 
-            <LinearLayout
-                android:id="@+id/linearLayout3"
-                android:layout_width="match_parent"
-                android:layout_height='300dp'
-                android:background="@drawable/aboutu_background"
-                android:orientation="horizontal"
-                tools:ignore="MissingConstraints"
-                tools:layout_editor_absoluteX="0dp"
-                tools:layout_editor_absoluteY="0dp">
+
+           <LinearLayout
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content">
+               <LinearLayout
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:layout_gravity="center_horizontal"
+                   android:orientation="horizontal"
+
+                   >
+                   <LinearLayout
+                        android:layout_weight="1"
+                       android:gravity="center"
+                       android:layout_width="wrap_content"
+                       android:layout_gravity="center_vertical"
+
+                       android:layout_height="wrap_content">
+
+                       <TextView
+                           android:layout_width="wrap_content"
+                           android:layout_height="wrap_content"
+                           android:layout_gravity="center_vertical"
+                           android:fontFamily="@font/alegreya_bold"
+                           android:gravity="center"
+                           android:text="Profile"
+                           android:textColor="@color/black_overlay"
+                           android:textSize="25sp"
+                           android:textStyle="bold" />
+
+
+                   </LinearLayout>
+                   <LinearLayout
+                       android:translationY="-50dp"
+                       android:translationX="30dp"
+
+                       android:background="@drawable/circle_login"
+                       android:layout_width="120dp"
+                       android:layout_height="120dp">
+
+
+
+
+
+
+                   </LinearLayout>
+               </LinearLayout>
+
+           </LinearLayout>
+
 
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
+                    android:orientation="horizontal">
 
-                    android:layout_margin="15dp"
+
+                <LinearLayout
+                    android:layout_width="170dp"
+                    android:weightSum="2"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:background="@drawable/notification_layout"
                     android:orientation="vertical">
 
 
-                    <com.mikhaellopez.circularimageview.CircularImageView
-                        android:layout_width="150dp"
-
-                        android:layout_height="120dp"
-                        android:layout_gravity="center_horizontal"
-                        android:src="@mipmap/ic_avatar1"
-                        app:civ_border_color="#fff"
-                        app:civ_border_width="1dp"
-                        app:civ_shadow="true"
-                        app:civ_shadow_color="#3f51b5" />
-
-
-                    <TextView
+                    <LinearLayout
 
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="center_horizontal"
-                        android:gravity="center"
-                        android:text="Ayush Kumar"
-                        android:textSize="30dp"
-                        android:textStyle="bold|italic" />
+                        android:orientation="vertical"
+                        android:layout_gravity="center_vertical"
+
+                        >
+
+                        <com.mikhaellopez.circularimageview.CircularImageView
+                            android:layout_width="match_parent"
+
+                            android:layout_height="120dp"
+                            android:layout_gravity="right"
+                            android:src="@mipmap/ic_avatar1"
+                            app:civ_border_color="#fff"
+                            app:civ_border_width="1dp"
+                            app:civ_shadow="true"
+                            app:civ_shadow_color="#3f51b5" />
+                    </LinearLayout>
+
+
+
+
+
 
 
                 </LinearLayout>
 
+                    <TextView
+                        android:id="@+id/profile_main_name"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center_horizontal"
+                        android:fontFamily="@font/alegreya_bold"
+                        android:gravity="center"
+                        android:text="Name"
+                        android:textSize="25dp"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp">
+
             </LinearLayout>
+
+
+
 
 
             <LinearLayout
@@ -74,38 +148,27 @@
                 android:layout_width="match_parent"
                 android:layout_height="132dp"
                 android:orientation="horizontal"
-                android:translationY="-50dp"
+
                 android:weightSum="2"
                 app:layout_constraintTop_toBottomOf="@+id/linearLayout3"
                 tools:ignore="MissingConstraints">
-                >
+
 
                 <LinearLayout
                     android:id="@+id/lin1"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
-
-
                     android:layout_weight="1"
                     android:elevation="30dp"
-
                     android:gravity="center"
-                    android:orientation="vertical"
+                    android:orientation="vertical">
 
-                    >
 
-                    <androidx.cardview.widget.CardView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/about_card"
-                        android:elevation="70dp"
-                        app:cardBackgroundColor="#c4586e"
-                        app:cardCornerRadius="12dp">
 
 
                         <LinearLayout
-
+                            android:background="@drawable/circle_login"
                             android:layout_width="100dp"
                             android:layout_height="100dp">
 
@@ -116,23 +179,37 @@
                                 android:src="@drawable/ic_posted_task" />
 
 
-                        </LinearLayout>
+                         </LinearLayout>
 
-                    </androidx.cardview.widget.CardView>
 
                     <TextView
                         android:id="@+id/posted_task"
                         android:layout_width="match_parent"
                         android:layout_height="20dp"
                         android:layout_gravity="center_vertical"
+                        android:fontFamily="@font/alegreya"
                         android:gravity="center"
                         android:orientation="vertical"
-                        android:text="Identity"
 
+                        android:text="Identity"
                         android:textStyle="italic" />
 
 
                 </LinearLayout>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
                 <LinearLayout
@@ -149,17 +226,14 @@
 
                     >
 
-                    <androidx.cardview.widget.CardView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/about_card"
-                        android:elevation="70dp"
-                        app:cardBackgroundColor="#c4586e"
-                        app:cardCornerRadius="12dp">
+
+
+
+
 
 
                         <LinearLayout
-
+                            android:background="@drawable/circle_login"
                             android:layout_width="100dp"
                             android:layout_height="100dp">
 
@@ -172,17 +246,17 @@
 
                         </LinearLayout>
 
-                    </androidx.cardview.widget.CardView>
 
                     <TextView
                         android:id="@+id/accepted_task"
                         android:layout_width="match_parent"
                         android:layout_height="20dp"
                         android:layout_gravity="center_vertical"
+                        android:fontFamily="@font/alegreya"
                         android:gravity="center"
                         android:orientation="vertical"
-                        android:text="Identity"
 
+                        android:text="Identity"
                         android:textStyle="italic" />
 
 
@@ -205,10 +279,9 @@
 
                 <LinearLayout
 
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
-                    android:layout_marginRight="15dp"
                     android:weightSum="3">
 
 
@@ -229,6 +302,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
+                            android:fontFamily="@font/alegreya_bold"
                             android:text="Username"
                             android:textSize="18dp"
                             android:textStyle="bold|italic" />
@@ -239,6 +313,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
+                            android:fontFamily="@font/alegreya"
                             android:text="User name" />
                     </LinearLayout>
 
@@ -246,7 +321,7 @@
 
 
                 <LinearLayout
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
                     android:layout_marginTop="10dp"
@@ -271,6 +346,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
+                            android:fontFamily="@font/alegreya_bold"
                             android:text="Phone Number"
                             android:textSize="18dp"
                             android:textStyle="bold|italic" />
@@ -281,6 +357,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
+                            android:fontFamily="@font/alegreya"
                             android:text="000000000" />
                     </LinearLayout>
 
@@ -288,7 +365,7 @@
 
 
                 <LinearLayout
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
                     android:layout_marginTop="10dp"
@@ -312,6 +389,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
+                            android:fontFamily="@font/alegreya_bold"
                             android:text="Email"
                             android:textSize="18dp"
                             android:textStyle="bold|italic" />
@@ -324,6 +402,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
+                            android:fontFamily="@font/alegreya"
                             android:text="aka@gmail.com" />
                     </LinearLayout>
 
@@ -332,6 +411,35 @@
 
             </LinearLayout>
 
+
+
+
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:orientation="horizontal"
+            >
+            <LinearLayout
+
+                android:translationY="30dp"
+                android:translationX="-40dp"
+                android:background="@drawable/circle_login"
+                android:layout_width="250dp"
+                android:layout_height="250dp">
+
+
+            </LinearLayout>
+
+
+
+
+
+
+        </LinearLayout>
 
         </LinearLayout>
     </ScrollView>

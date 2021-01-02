@@ -11,6 +11,13 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         tools:ignore="MissingConstraints">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -84,9 +91,9 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
 
-                    android:text="Posted By"
+                    android:fontFamily="@font/alegreya_bold"
 
-                    />
+                    android:text="Posted By" />
 
                 <TextView
                     android:id="@+id/detail_name"
@@ -94,11 +101,11 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
                     android:layout_weight="1.5"
-                    android:textStyle="bold|italic"
+                    android:fontFamily="@font/alegreya"
 
                     android:text="Ayush"
 
-                    />
+                    android:textStyle="bold|italic" />
             </LinearLayout>
 
 
@@ -111,12 +118,12 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="20dp"
+            android:fontFamily="@font/alegreya_bold"
             android:text="Price"
-            android:textSize="20dp"
             android:textColor="@color/home_color"
-            android:textStyle="bold|italic"
+            android:textSize="20dp"
 
-            />
+            android:textStyle="bold|italic" />
 
 
         <TextView
@@ -124,17 +131,20 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
+            android:fontFamily="@font/alegreya"
             android:text="aaa"
             android:textSize="25dp"
             app:layout_constraintTop_toBottomOf="@+id/detailimage"
             tools:ignore="MissingConstraints"
             tools:layout_editor_absoluteX="0dp" />
+
         <TextView
             android:id="@+id/detail_description"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:maxLines="4"
             android:layout_marginTop="15dp"
+            android:fontFamily="@font/alegreya"
+            android:maxLines="4"
             android:text="aaa"
             android:textSize="15dp"
             app:layout_constraintTop_toBottomOf="@+id/detailimage"
@@ -165,16 +175,47 @@
             <Button
 
                 android:id="@+id/detail_button"
-                android:layout_weight="1"
-                android:text="@string/detail_button"
-                android:textColor="#fff"
-                android:background="@drawable/detail_button"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/detail_button"
+                android:fontFamily="@font/alegreya"
+                android:text="@string/detail_button"
+                android:textColor="#fff" />
         </LinearLayout>
 
 
 
+
+
     </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:orientation="horizontal"
+                >
+                <LinearLayout
+
+                    android:translationY="30dp"
+                    android:translationX="-40dp"
+                    android:background="@drawable/circle_login"
+                    android:layout_width="250dp"
+                    android:layout_height="250dp">
+
+
+                </LinearLayout>
+
+
+
+
+
+
+            </LinearLayout>
+
+        </LinearLayout>
+
     </ScrollView>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

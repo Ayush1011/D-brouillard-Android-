@@ -62,11 +62,14 @@ class Posttask : AppCompatActivity() {
         getuser()
         post_button.setOnClickListener {
 
+
+
             Upload_Post()
+
+
         }
 
-        supportActionBar?.title= "Publier"
-
+        supportActionBar?.hide()
 
 
 
@@ -133,7 +136,7 @@ class Posttask : AppCompatActivity() {
 
     private fun uploadFile() {
         val progress = ProgressDialog(this).apply {
-            setTitle("Uploading Picture....")
+            setTitle("Making your task available...")
             setCancelable(false)
             setCanceledOnTouchOutside(false)
             show()
@@ -226,6 +229,8 @@ class Posttask : AppCompatActivity() {
     private fun Upload_Post(){
 
 
+
+
         val post_title=post_title_text.text.toString().trim()
         val post_des=post_Des_text.text.toString().trim()
         val post_price=post_price_text.text.toString().trim()
@@ -253,7 +258,12 @@ class Posttask : AppCompatActivity() {
                 return@setOnClickListener
             }
         }
-
+        val progress = ProgressDialog(this).apply {
+            setTitle("Uploading Picture....")
+            setCancelable(false)
+            setCanceledOnTouchOutside(false)
+            show()
+        }
 
 
 
@@ -269,6 +279,7 @@ class Posttask : AppCompatActivity() {
 
                 println(response.body())
                 if (response.body() != null) {
+                    progress.dismiss()
                     Toast.makeText(this@Posttask, "Done", Toast.LENGTH_SHORT).show()
                     finish()
 

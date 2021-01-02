@@ -7,26 +7,85 @@
     android:orientation="vertical"
     tools:context=".util.Personal_Post.SeePost">
 
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
     <LinearLayout
+        android:orientation="vertical"
         android:layout_margin="15dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+
+    <LinearLayout
+
         android:orientation="vertical"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         tools:ignore="MissingConstraints">
 
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/alegreya_bold"
+            android:text="accès"
             android:textSize="45dp"
-            android:textStyle="bold"
-            android:text="accès"/>
+            android:textStyle="bold" />
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="35dp"
+            android:fontFamily="@font/alegreya"
 
-            android:text="Personal Views"/>
+            android:text="Accepted Task"
+            android:textSize="35dp" />
 
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/accepted_post_skeleton">
+        <com.facebook.shimmer.ShimmerFrameLayout
+            android:id="@+id/shimmer_view_container"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="15dp"
+            android:orientation="vertical"
+            app:duration="800"
+            >
+
+            <!-- Adding 7 rows of placeholders -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <include layout="@layout/skeleton_row_layout" />
+                <include layout="@layout/skeleton_row_layout" />
+                <include layout="@layout/skeleton_row_layout" />
+                <TextView
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:layout_gravity="center_vertical"
+                    android:gravity="center"
+                    android:id="@+id/accepted_task_no_task"
+                    android:layout_width="match_parent"
+                    style="bold"
+                    android:layout_height="wrap_content"/>
+                <include layout="@layout/skeleton_row_layout" />
+                <include layout="@layout/skeleton_row_layout" />
+                <include layout="@layout/skeleton_row_layout" />
+
+            </LinearLayout>
+
+        </com.facebook.shimmer.ShimmerFrameLayout>
     </LinearLayout>
 
 
@@ -36,13 +95,11 @@
         android:layout_height="wrap_content"/>
 
 
+    </LinearLayout>
 
-    <TextView
-        android:layout_gravity="center_vertical"
-        android:gravity="center"
-        android:id="@+id/accepted_task_no_task"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+
+    </ScrollView>
+
 
 
 </LinearLayout>

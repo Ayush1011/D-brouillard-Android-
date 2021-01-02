@@ -25,7 +25,7 @@
 
                 android:id="@+id/linearLayout2"
                 android:layout_width="match_parent"
-                android:layout_height='350dp'
+                android:layout_height="281dp"
 
                 android:orientation="vertical"
                 tools:ignore="MissingConstraints"
@@ -33,21 +33,21 @@
                 tools:layout_editor_absoluteY="6dp">
 
 
+                <!--                <pl.droidsonroids.gif.GifImageView-->
+                <!--                    android:layout_width="match_parent"-->
+                <!--                    android:layout_height="match_parent"-->
+                <!--                    android:src="@drawable/alphatestersanimation2"-->
+                <!--                    />-->
 
                 <com.scwang.wave.MultiWaveHeader
                     android:id="@+id/waveHeader"
                     android:layout_width="match_parent"
                     android:layout_height="200dp"
-                    android:scaleY="-1"
-                    app:mwhVelocity="1"
-                    app:mwhProgress="1"
-
-                    app:mwhGradientAngle="45"
-                    app:mwhWaveHeight="50dp"
+                    app:mwhCloseColor="@color/color_wave_2"
                     app:mwhColorAlpha="0.45"
-                    app:mwhStartColor="@color/colorPrimaryDark"
-                    app:mwhCloseColor="@color/colorAccent"
-                    app:mwhWaves="MultiWave"/>
+                    app:mwhGradientAngle="45"
+                    app:mwhStartColor="@color/color_wave_1"
+                    app:mwhWaveHeight="50dp" />
 
 
             </LinearLayout>
@@ -94,39 +94,30 @@
 
 
 
-            <TextView
-                android:id="@+id/home_ui_no_task"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textSize="30dp"
-                android:text="Available Freelance work."
-                android:gravity="center"/>
+
             </LinearLayout>
 
 
 
 
 
-        <androidx.cardview.widget.CardView
-
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:elevation="70dp"
-            android:translationY="-120dp"
-            app:cardCornerRadius="12dp">
 
 
-            <TextView
-                android:id="@+id/All_task"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Available Freelance work."
-                android:gravity="center"/>
+
             <LinearLayout
-                android:layout_marginTop="50dp"
+              android:orientation="vertical"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:id="@+id/replace_fragment">
+
+                <TextView
+                    android:id="@+id/All_task"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/alegreya_bold"
+                    android:gravity="center"
+                    android:text="Available Freelance work"
+                    android:textSize="20sp" />
 
 
                 <androidx.recyclerview.widget.RecyclerView
@@ -135,15 +126,18 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="20dp" />
 
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="75dp">
+
+                </LinearLayout>
+
             </LinearLayout>
-        </androidx.cardview.widget.CardView>
 
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="75dp">
 
-            </LinearLayout>
+
         </LinearLayout>
 
 

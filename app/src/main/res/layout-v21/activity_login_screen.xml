@@ -7,6 +7,14 @@
     android:layout_height="match_parent"
     tools:context=".util.LoginScreen">
 
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -38,14 +46,17 @@
         <LinearLayout
             android:translationY="-50dp"
             android:translationX="-110dp"
-            android:background="@drawable/circle_login"
+            android:background="@drawable/cirle2_login"
             android:alpha="0.5"
             android:layout_width="250dp"
             android:layout_height="250dp">
 
         </LinearLayout>
 
+
     </LinearLayout>
+
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -57,20 +68,23 @@
 
 
 
+
         <androidx.cardview.widget.CardView
+            android:layout_marginTop="15dp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-
-
-            android:elevation="70dp"
+            android:layout_height="150dp"
+            app:cardCornerRadius="8dp"
+            android:layout_margin="5dp"
+            android:elevation="10dp"
             app:cardBackgroundColor="@color/white"
-            app:cardCornerRadius="2dp"
             >
 
 
             <LinearLayout
+                android:layout_margin="20dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
                 android:orientation="vertical">
 
 
@@ -89,7 +103,7 @@
                     android:inputType="textPersonName"
                     android:padding="10dp"
                     android:textColor="@color/black_overlay"
-                    android:textColorHint="@color/hint_color"
+                    android:textColorHint="@color/black_overlay"
                     android:textColorLink="@color/black_overlay"
                     android:textSize="15dp"
                     android:textStyle="italic"
@@ -113,7 +127,7 @@
                     android:inputType="textPersonName"
                     android:padding="10dp"
                     android:textColor="@color/black_overlay"
-                    android:textColorHint="@color/hint_color"
+                    android:textColorHint="@color/black_overlay"
                     android:textSize="15dp"
                     app:backgroundTint="@color/home_color" />
             </LinearLayout>
@@ -154,5 +168,5 @@
             android:text="Sign Up?"/>
 
     </LinearLayout>
-
+    </LinearLayout>
 </RelativeLayout>

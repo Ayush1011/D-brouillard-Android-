@@ -2,6 +2,7 @@ package com.example.lpuactivity.util.Accepted_post
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import android.widget.Toast
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.lpuactivity.R
@@ -12,6 +13,8 @@ import com.example.lpuactivity.util.Personal_Post.personal_post_adaptar
 import com.example.lpuactivity.util.access
 import com.example.lpuactivity.util.email
 import kotlinx.android.synthetic.main.activity_show_accepted_post.*
+import kotlinx.android.synthetic.main.activity_show_accepted_post.shimmer_view_container
+import kotlinx.android.synthetic.main.activity_your_accepted_work.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -21,6 +24,10 @@ class Show_accepted_post : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_show_accepted_post)
         supportActionBar?.hide()
+
+        accepted_post_skeleton.visibility=View.VISIBLE
+        accepted_task_no_task.visibility=View.GONE
+        shimmer_view_container.startShimmerAnimation();
 
         get_acc_post()
 
@@ -42,8 +49,13 @@ class Show_accepted_post : AppCompatActivity() {
                    val dservice = response.body()!!
 
                    if(response.body()!!.count()==0){
+                       accepted_task_no_task.visibility=View.VISIBLE
                        accepted_task_no_task.text="You accepted no tasks"
 
+                   }else{
+                       accepted_post_skeleton.visibility=View.GONE
+                       accepted_task_no_task.visibility=View.GONE
+                       shimmer_view_container.stopShimmerAnimation();
                    }
 
                    accepted_post.layoutManager =
@@ -55,6 +67,9 @@ class Show_accepted_post : AppCompatActivity() {
 
            override fun onFailure(call: Call<List<Video1>>, t: Throwable) {
                Toast.makeText(this@Show_accepted_post, "Unable to load tasks", Toast.LENGTH_SHORT).show()
+               accepted_post_skeleton.visibility=View.GONE
+               accepted_task_no_task.visibility=View.GONE
+               shimmer_view_container.stopShimmerAnimation();
 
            }
 

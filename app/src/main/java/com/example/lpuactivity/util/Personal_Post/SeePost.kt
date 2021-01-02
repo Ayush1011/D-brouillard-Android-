@@ -11,6 +11,7 @@ import com.example.lpuactivity.models.Video1
 import com.example.lpuactivity.util.access
 import com.example.lpuactivity.util.email
 import kotlinx.android.synthetic.main.activity_see_post.*
+import kotlinx.android.synthetic.main.activity_show_accepted_post.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -20,6 +21,7 @@ class SeePost : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_see_post)
         supportActionBar?.hide()
+        
         getPost()
 
     }
@@ -35,7 +37,15 @@ class SeePost : AppCompatActivity() {
                 response: Response<List<Video1>>
             ) {
 
+
+
                 if (response.isSuccessful) {
+
+                    if(response.body()!!.count()==0){
+                        presonal_post_no_post.text="You have no post!!"
+
+                    }
+
                     val sp1 = response.body()!!
                     println(sp1)
                     personal_post.layoutManager =
